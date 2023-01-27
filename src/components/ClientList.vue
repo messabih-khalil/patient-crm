@@ -2,6 +2,7 @@
 // ** imports
 
 import AddButton from "./AddButton.vue";
+import Search from "./Search.vue";
 </script>
 
 <template>
@@ -13,6 +14,8 @@ import AddButton from "./AddButton.vue";
         <AddButton />
       </div>
     </div>
+    <!-- search -->
+    <Search />
   </div>
 </template>
 
