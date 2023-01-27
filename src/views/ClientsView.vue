@@ -2,12 +2,20 @@
 // ** imports
 
 import Clients from "../components/Clients.vue";
+
+import ClientDetails from "@/components/clientDetails/ClientDetails.vue";
 </script>
 
 <template>
-  <div>
+  <div class="main">
     <Clients />
+
+    <ClientDetails />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main {
+  display: flex;
+}
+</style>
