@@ -2,7 +2,7 @@
   <!-- sidebar -->
   <SideBar />
   <!-- app -->
-  <div class="app">
+  <div class="mainApp">
     <router-view />
   </div>
 </template>
@@ -19,4 +19,8 @@ const name = ref("alaa");
 
 <style lang="scss">
 @import "./assets/scss/global.scss";
+
+.mainApp {
+  margin-left: $sidebarWidth;
+}
 </style>

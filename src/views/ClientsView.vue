@@ -1,9 +1,13 @@
-<script setup></script>
+<script setup>
+// ** imports
+
+import Clients from "../components/Clients.vue";
+</script>
 
 <template>
-  <div></div>
+  <div>
+    <Clients />
+  </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
