@@ -19,7 +19,7 @@ import avatar from "../../assets/images/avatar.png";
 
 .header {
   padding: $space-6 $space-5;
-  background-color: $colorFour;
+  background-color: $colorFive;
   width: 100%;
   display: flex;
   align-items: center;

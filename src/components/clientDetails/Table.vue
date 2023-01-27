@@ -2,61 +2,44 @@
   <table class="rwd-table">
     <tbody>
       <tr>
-        <th>Supplier Code</th>
-        <th>Supplier Name</th>
-        <th>Invoice Number</th>
-        <th>Invoice Date</th>
-        <th>Due Date</th>
-        <th>Net Amount</th>
+        <th>Date</th>
+        <th>Act</th>
+        <th>Cout</th>
+        <th>Versement</th>
+        <th>Rest</th>
+        <th></th>
       </tr>
       <tr>
-        <td data-th="Supplier Code">UPS5005</td>
-        <td data-th="Supplier Name">UPS</td>
-        <td data-th="Invoice Number">ASDF19218</td>
-        <td data-th="Invoice Date">06/25/2016</td>
-        <td data-th="Due Date">12/25/2016</td>
-        <td data-th="Net Amount">$8,322.12</td>
+        <td>01-12-2023</td>
+        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit</td>
+        <td>ASDF19218</td>
+        <td>06/25/2016</td>
+        <td>12/25/2016</td>
+        <td>$8,322.12</td>
       </tr>
       <tr>
-        <td data-th="Supplier Code">UPS3449</td>
-        <td data-th="Supplier Name">UPS South Inc.</td>
-        <td data-th="Invoice Number">ASDF29301</td>
-        <td data-th="Invoice Date">6/24/2016</td>
-        <td data-th="Due Date">12/25/2016</td>
-        <td data-th="Net Amount">$3,255.49</td>
-      </tr>
-      <tr>
-        <td data-th="Supplier Code">BOX5599</td>
-        <td data-th="Supplier Name">BOX Pro West</td>
-        <td data-th="Invoice Number">ASDF43000</td>
-        <td data-th="Invoice Date">6/27/2016</td>
-        <td data-th="Due Date">12/25/2016</td>
-        <td data-th="Net Amount">$45,255.49</td>
-      </tr>
-      <tr>
-        <td data-th="Supplier Code">PAN9999</td>
-        <td data-th="Supplier Name">Pan Providers and Co.</td>
-        <td data-th="Invoice Number">ASDF33433</td>
-        <td data-th="Invoice Date">6/29/2016</td>
-        <td data-th="Due Date">12/25/2016</td>
-        <td data-th="Net Amount">$12,335.69</td>
+        <td>01-12-2023</td>
+        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit</td>
+        <td>ASDF19218</td>
+        <td>06/25/2016</td>
+        <td>12/25/2016</td>
+        <td>$8,322.12</td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <style lang="scss" scoped>
+@import "../../assets/scss/global.scss";
+
 .rwd-table {
-  margin: auto;
-  min-width: 300px;
-  max-width: 100%;
+  width: 100%;
   border-collapse: collapse;
 }
 
 .rwd-table tr:first-child {
   border-top: none;
-  background: #428bca;
-  color: #fff;
+  color: $colorOne;
 }
 
 .rwd-table tr {
@@ -66,7 +49,7 @@
 }
 
 .rwd-table tr:nth-child(odd):not(:first-child) {
-  background-color: #ebf3f9;
+  background-color: $colorFive;
 }
 
 .rwd-table th {
@@ -100,7 +83,7 @@
 
 .rwd-table {
   color: #333;
-  border-radius: 0.4em;
+  
   overflow: hidden;
 }
 
@@ -111,5 +94,35 @@
 .rwd-table th,
 .rwd-table td {
   padding: 0.5em 1em;
+}
+@media screen and (max-width: 601px) {
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+  .rwd-table td:before {
+    display: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: 0.25em 0.5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
 }
 </style>
