@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+// ** colors
+$colorOne: #111111;
+$colorTwo: #d4e7ee;
+$colorThree: #dcedf5;
+$colorFour: #e7f4db;
+
+$colorFive: #fafcfe;
+
+// ** sideBar
+
+$sidebarWidth: 100px;
