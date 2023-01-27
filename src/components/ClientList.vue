@@ -3,6 +3,8 @@
 
 import AddButton from "./AddButton.vue";
 import Search from "./Search.vue";
+
+import Tile from "../components/Tile.vue";
 </script>
 
 <template>
@@ -16,6 +18,10 @@ import Search from "./Search.vue";
     </div>
     <!-- search -->
     <Search />
+    <!-- tile -->
+    <div class="tailes">
+      <Tile v-for="(item, _) in 100" :key="item" />
+    </div>
   </div>
 </template>
 
@@ -34,6 +40,11 @@ import Search from "./Search.vue";
       text-transform: uppercase;
       font-weight: 600;
     }
+  }
+
+  .tailes {
+    overflow-y: scroll;
+    height: 60vh;
   }
 }
 </style>
