@@ -6,15 +6,18 @@ import Input from "./Input.vue";
 </script>
 
 <template>
-  <div>
+  <div class="client-details">
     <Head />
     <!-- actions -->
 
-    <!-- table -->
-    <div class="table-actions">
+    <div class="table">
       <!-- actions -->
-      <Input type="text" />
-      <Input type="date" />
+      <div class="table-actions">
+        <Input inputType="text" />
+        <Input inputType="date" />
+      </div>
+
+      <!-- table -->
       <Table />
     </div>
   </div>
@@ -23,11 +26,18 @@ import Input from "./Input.vue";
 <style lang="scss" scoped>
 @import "../../assets/scss/global.scss";
 
-div {
+.client-details {
   //   background-color: red;
   flex-grow: 1;
-  .table-actions {
+  .table {
     padding: $space-2;
+
+    .table-actions {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }
 </style>
