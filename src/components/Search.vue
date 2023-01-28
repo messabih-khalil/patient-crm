@@ -1,6 +1,25 @@
+<script>
+export default {
+  data() {
+    return {
+      searchInput: "",
+    };
+  },
+
+
+  // watchers
+  watch: {
+    searchInput: function (newValue, oldValue) {
+      this.$emit("searchData", newValue);
+    },
+  },
+  // actions
+};
+</script>
+
 <template>
   <div class="search">
-    <input type="text" placeholder="Search ..." />
+    <input type="text" placeholder="Search ..." v-model="searchInput" />
   </div>
 </template>
 

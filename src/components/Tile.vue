@@ -1,18 +1,36 @@
-<script setup>
+<script>
 // ** imports
-import avatar from "../assets/images/avatar.png";
+import { mapActions } from "vuex";
+
+//  ****
+export default {
+  // props
+  props: {
+    client: {
+      type: Object,
+    },
+  },
+  // actions
+
+  methods: {
+    ...mapActions("clientDetailStore", ["setClientAction"]),
+    setClient() {
+      this.setClientAction(this.client);
+    },
+  },
+};
 </script>
 
 <template>
-  <a class="tile" href="#">
+  <a class="tile" @click.prevent="setClient()">
     <div class="name-image">
       <!-- image -->
-      <img :src="avatar" alt="" />
+      <img src="../assets/images/avatar.png" alt="" />
       <!-- name -->
-      <span>Messabih khalil</span>
+      <span>{{ client.name }}</span>
     </div>
 
-    <p class="phone">0785963652</p>
+    <p class="phone">{{ client.phone }}</p>
 
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +61,8 @@ import avatar from "../assets/images/avatar.png";
   color: $fontColor;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+
   .name-image {
     display: flex;
     align-items: center;

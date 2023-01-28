@@ -1,14 +1,9 @@
-import { createStore } from 'vuex'
-
+import { createStore } from "vuex";
+import client from "./clients/client";
+import clientDetail from "./clientDetails/clientDetail";
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
-  }
-})
+    clientsStore: client,
+    clientDetailStore: clientDetail,
+  },
+});

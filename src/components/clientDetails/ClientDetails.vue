@@ -1,17 +1,36 @@
-<script setup>
+<script>
 // ** imports
 import Head from "./Head.vue";
 import Table from "./Table.vue";
 import Input from "./Input.vue";
 import AddButton from "./AddButton.vue";
 import ClientDetailsPopup from "../popups/ClientDetailsPopup.vue";
-import { ref } from "vue";
+import { mapGetters } from "vuex";
 
-const showPopup = ref(false);
+// ****
+export default {
+  data() {
+    return {
+      showPopup: false,
+    };
+  },
+
+  computed: {
+    ...mapGetters({ client: "clientDetailStore/getClient" }),
+  },
+
+  components: {
+    Head,
+    Table,
+    Input,
+    AddButton,
+    ClientDetailsPopup,
+  },
+};
 </script>
 
 <template>
-  <div class="client-details">
+  <div class="client-details" v-if="Object.keys(client).length">
     <Head />
     <!-- actions -->
 
@@ -33,6 +52,10 @@ const showPopup = ref(false);
       @closePopupEmiter="showPopup = !showPopup"
     />
   </div>
+
+  <div class="none" v-else>
+    <img src="../../assets/images/folder.png" alt="" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -50,6 +73,19 @@ const showPopup = ref(false);
       align-items: center;
       justify-content: flex-end;
     }
+  }
+}
+
+.none {
+  display: flex;
+  height: 100vh;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 300px;
+    height: 300px;
+    opacity: .1;
   }
 }
 </style>

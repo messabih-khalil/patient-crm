@@ -1,15 +1,22 @@
-<script setup>
-// ** import
+<script>
+// ** imports
 
-import avatar from "../../assets/images/avatar.png";
+import { mapGetters } from "vuex";
+
+export default {
+  // computed
+  computed: {
+    ...mapGetters({ client: "clientDetailStore/getClient" }),
+  },
+};
 </script>
 
 <template>
   <div class="header">
-    <img :src="avatar" alt="" />
+    <img src="../../assets/images/avatar.png" alt="" />
     <div>
-      <p>Messabih khalil</p>
-      <span>078855885588</span>
+      <p>{{ client.name }}</p>
+      <span>{{ client.phone }}</span>
     </div>
   </div>
 </template>

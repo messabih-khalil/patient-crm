@@ -18,7 +18,7 @@ import ClientList from "../components/ClientList.vue";
 @import "../assets/scss/global.scss";
 
 .client-comp {
-  width: 500px;
+  width: 600px;
   height: 100vh;
   // background-color: $colorTwo;
   border-right: 1px solid rgb(216, 216, 216);

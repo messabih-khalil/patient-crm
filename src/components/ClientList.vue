@@ -1,15 +1,73 @@
-<script setup>
+<script>
 // ** imports
 
 import AddButton from "./AddButton.vue";
 import Search from "./Search.vue";
 import Tile from "../components/Tile.vue";
 import ClientPopupVue from "@/components/popups/ClientPopup.vue";
-import { ref } from "vue";
+import { mapGetters, mapActions } from "vuex";
 
-// **
+// ****
+export default {
+  data() {
+    return {
+      showPopup: false,
+      clientsList: [],
+    };
+  },
 
-const showPopup = ref(false);
+  // components
+
+  components: {
+    AddButton,
+    Search,
+    Tile,
+    ClientPopupVue,
+  },
+
+  // computed
+
+  computed: {
+    ...mapGetters({ clients: "clientsStore/getAllClients" }),
+    ...mapGetters({ getFilteredClients: "clientsStore/getFilteredClients" }),
+  },
+  // methods
+
+  methods: {
+    ...mapActions("clientsStore", ["getClientsAction"]),
+    filterClients(value) {
+      console.log(value);
+      if (value) {
+        this.clientsList = this.getFilteredClients(value);
+      } else {
+        this.clientsList = this.clients;
+      }
+    },
+  },
+
+  // Hooks
+
+  created() {
+    this.getClientsAction([
+      {
+        id: 1,
+        name: "messabih khalil",
+        phone: "01478525",
+      },
+      {
+        id: 2,
+        name: "messabih aldin",
+        phone: "01478525",
+      },
+      {
+        id: 3,
+        name: "messabih mohamed",
+        phone: "01478525",
+      },
+    ]);
+    this.clientsList = this.clients;
+  },
+};
 </script>
 
 <template>
@@ -22,10 +80,10 @@ const showPopup = ref(false);
       </div>
     </div>
     <!-- search -->
-    <Search />
+    <Search @searchData="value => filterClients(value)" />
     <!-- tile -->
     <div class="tailes">
-      <Tile v-for="(item, _) in 100" :key="item" />
+      <Tile v-for="(item, _) in clientsList" :key="item.id" :client=item />
     </div>
 
     <!-- popup -->
