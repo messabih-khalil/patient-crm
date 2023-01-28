@@ -25,11 +25,10 @@
             >
               <path fill="none" d="M0 0h24v24H0z" />
               <path
-                d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z"
+                d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zm1.414-1.414l1.414-1.414-1.414-1.414-1.414 1.414 1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 21z"
               />
             </svg>
           </button>
-
           <button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,20 +38,13 @@
             >
               <path fill="none" d="M0 0h24v24H0z" />
               <path
-                d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zm1.414-1.414l1.414-1.414-1.414-1.414-1.414 1.414 1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 21z"
+                d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z"
               />
             </svg>
           </button>
         </td>
       </tr>
-      <tr>
-        <td>01-12-2023</td>
-        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit</td>
-        <td>ASDF19218</td>
-        <td>06/25/2016</td>
-        <td>12/25/2016</td>
-        <td>$8,322.12</td>
-      </tr>
+      
     </tbody>
   </table>
 </template>
@@ -151,6 +143,25 @@
   .rwd-table th,
   .rwd-table td {
     padding: 1em !important;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    margin-left: 0.5rem;
+
+    &:first-child {
+      background-color: greenyellow;
+    }
+
+    &:nth-child(2) {
+      background-color: rgb(252, 134, 134);
+    }
   }
 }
 </style>

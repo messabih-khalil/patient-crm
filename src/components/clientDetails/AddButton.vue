@@ -1,5 +1,15 @@
+<script setup>
+// ** change popup status
+
+const emit = defineEmits(["showPopupEmiter"]);
+
+const togglePopup = () => {
+  emit("showPopupEmiter");
+};
+</script>
+
 <template>
-  <button><span> Nouveau</span></button>
+  <button @click.prevent="togglePopup"><span> Nouveau</span></button>
 </template>
 
 <style lang="scss" scoped>

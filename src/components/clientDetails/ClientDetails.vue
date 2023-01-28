@@ -4,6 +4,10 @@ import Head from "./Head.vue";
 import Table from "./Table.vue";
 import Input from "./Input.vue";
 import AddButton from "./AddButton.vue";
+import ClientDetailsPopup from "../popups/ClientDetailsPopup.vue";
+import { ref } from "vue";
+
+const showPopup = ref(false);
 </script>
 
 <template>
@@ -16,12 +20,18 @@ import AddButton from "./AddButton.vue";
       <div class="table-actions">
         <Input inputType="text" />
         <Input inputType="date" />
-        <AddButton/>
+        <AddButton @showPopupEmiter="showPopup = !showPopup" />
       </div>
 
       <!-- table -->
       <Table />
     </div>
+
+    <!-- popup -->
+    <ClientDetailsPopup
+      :showPopup="showPopup"
+      @closePopupEmiter="showPopup = !showPopup"
+    />
   </div>
 </template>
 
