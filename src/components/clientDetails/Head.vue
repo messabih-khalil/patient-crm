@@ -19,7 +19,8 @@ import avatar from "../../assets/images/avatar.png";
 
 .header {
   padding: $space-6 $space-5;
-  background-color: $colorFive;
+  // background-color: $colorFive;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -33,6 +34,7 @@ import avatar from "../../assets/images/avatar.png";
       font-size: 2rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      color: $fontColor;
     }
 
     span {

@@ -30,7 +30,9 @@ import avatar from "../assets/images/avatar.png";
   font-weight: 600;
   margin-top: $space-2;
   margin-right: 1rem;
-  color: $colorOne;
+  color: $fontColor;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   .name-image {
     display: flex;
     align-items: center;

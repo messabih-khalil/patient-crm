@@ -11,12 +11,12 @@
 .header {
   padding: $space-6 $space-5;
   background-color: $colorThree;
-
   p {
     text-transform: capitalize;
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    color: $fontColor;
   }
 
   span {

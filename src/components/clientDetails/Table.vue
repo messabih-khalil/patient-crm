@@ -45,7 +45,8 @@
 .rwd-table tr {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: #f5f9fc;
+  background-color: white;
+  font-weight: 600;
 }
 
 .rwd-table tr:nth-child(odd):not(:first-child) {
