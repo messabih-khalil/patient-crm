@@ -1,5 +1,17 @@
+<script setup>
+// ** change popup status
+
+const emit = defineEmits(["showPopupEmiter"]);
+
+const togglePopup = () => {
+  emit("showPopupEmiter");
+};
+
+
+</script>
+
 <template>
-  <button>+</button>
+  <button @click.prevent="togglePopup"><span>+</span></button>
 </template>
 
 <style lang="scss" scoped>
@@ -15,5 +27,8 @@ button {
   font-size: 20px;
   background-color: $colorOne;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

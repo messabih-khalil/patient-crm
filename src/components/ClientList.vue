@@ -3,8 +3,13 @@
 
 import AddButton from "./AddButton.vue";
 import Search from "./Search.vue";
-
 import Tile from "../components/Tile.vue";
+import ClientPopupVue from "@/components/popups/ClientPopup.vue";
+import { ref } from "vue";
+
+// **
+
+const showPopup = ref(false);
 </script>
 
 <template>
@@ -13,7 +18,7 @@ import Tile from "../components/Tile.vue";
       <p>Clientes</p>
       <!-- actions -->
       <div class="actions">
-        <AddButton />
+        <AddButton @showPopupEmiter="showPopup = !showPopup" />
       </div>
     </div>
     <!-- search -->
@@ -22,6 +27,12 @@ import Tile from "../components/Tile.vue";
     <div class="tailes">
       <Tile v-for="(item, _) in 100" :key="item" />
     </div>
+
+    <!-- popup -->
+    <ClientPopupVue
+      :showPopup="showPopup"
+      @closePopupEmiter="showPopup = !showPopup"
+    />
   </div>
 </template>
 
@@ -30,7 +41,7 @@ import Tile from "../components/Tile.vue";
 
 .clients-list {
   padding: $space-6 $space-5;
-
+  position: relative;
   .head {
     display: flex;
     align-items: center;
