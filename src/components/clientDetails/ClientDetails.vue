@@ -3,6 +3,7 @@
 import Head from "./Head.vue";
 import Table from "./Table.vue";
 import Input from "./Input.vue";
+import AddButton from "./AddButton.vue";
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import Input from "./Input.vue";
       <div class="table-actions">
         <Input inputType="text" />
         <Input inputType="date" />
+        <AddButton/>
       </div>
 
       <!-- table -->
