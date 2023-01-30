@@ -7,7 +7,7 @@ module.exports = {
   db,
 };
 
-// const addClient = async client => await db("clients").insert(client);
+
 
 // addClient({ name: "aldin", phone: "02587485" })
 //   .then(result => {
