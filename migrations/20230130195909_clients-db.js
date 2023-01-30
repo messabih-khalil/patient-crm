@@ -19,10 +19,11 @@ exports.up = function (knex) {
         tbl.bigInteger("paid");
         tbl.timestamps(true, true);
         //   Foreign key with client table
-        tbl.integer("client_id").unsigned().notNullable();
         tbl
-          .foreign("client_id")
-          .references("clients.id")
+          .integer("client_id")
+          .unsigned()
+          .references("id")
+          .inTable("clients")
           .onDelete("CASCADE")
           .onUpdate("CASCADE");
       })
