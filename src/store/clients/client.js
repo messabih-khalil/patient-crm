@@ -1,3 +1,5 @@
+const { ipcRenderer } = require("electron");
+
 export default {
   namespaced: true,
   state: {
@@ -37,11 +39,22 @@ export default {
     SET_CLIENTS: (state, payload) => {
       state.clients = payload;
     },
+
+    PUSH_CLIENT: (state, payload) => {},
   },
   actions: {
     // get clients
     getClientsAction: (context, payload) => {
+      // ipcRenderer.invoke('createClient' , "hi")
       context.commit("SET_CLIENTS", payload);
+    },
+
+    // add client
+    addClientAction: async (context, payload) => {
+      // send data to ipc main
+      const result = await ipcRenderer.invoke("createClient", payload);
+      console.log(result);
+      // context.commit("PUSH_CLIENT", result);
     },
   },
 };
