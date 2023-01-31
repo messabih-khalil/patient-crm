@@ -16,6 +16,7 @@ const updateApt = async apt =>
       description: apt.description,
       price: apt.price,
       paid: apt.paid,
+      created_at: apt.created_at,
     },
     ["id", "description", "price", "paid", "created_at"]
   );

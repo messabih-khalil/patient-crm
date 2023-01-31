@@ -80,5 +80,12 @@ export default {
 
       commit("DELETE_APT", payload);
     },
+
+    updateAptAction: async ({ commit }, payload) => {
+      const result = await ipcRenderer.invoke("updateApt", payload);
+
+      commit("DELETE_APT", result.id);
+      commit("SET_NEW_APT", result);
+    },
   },
 };

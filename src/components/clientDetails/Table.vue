@@ -11,6 +11,7 @@ export default {
   },
   methods: {
     ...mapActions("clientDetailStore", ["deleteApt"]),
+    ...mapActions("popupUpDataStore", ["changeAptDataAction"]),
 
     // remove apt
 
@@ -20,8 +21,9 @@ export default {
 
     // update apt
 
-    updateApt(id) {
-      console.log(id);
+    updateApt(data) {
+      this.changeAptDataAction(data);
+      this.$emit("showUpdatePopupEmiter");
     },
   },
 };
@@ -45,7 +47,7 @@ export default {
         <td>{{ item.paid }} DA</td>
         <td>{{ item.price - item.paid }} DA</td>
         <td class="actions">
-          <button @click.prevent="updateApt(item.id)">
+          <button @click.prevent="updateApt(item)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -5,7 +5,6 @@ import Clients from "../components/Clients.vue";
 
 import ClientDetails from "@/components/clientDetails/ClientDetails.vue";
 
-import ClientPopupVue from "@/components/popups/ClientPopup.vue";
 </script>
 
 <template>

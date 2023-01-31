@@ -5,6 +5,7 @@ import Table from "./Table.vue";
 import Input from "./Input.vue";
 import AddButton from "./AddButton.vue";
 import ClientDetailsPopup from "../popups/ClientDetailsPopup.vue";
+import UpdateAptPopup from "../popups/UpdateAptPopup.vue";
 import { mapGetters } from "vuex";
 
 // ****
@@ -12,6 +13,7 @@ export default {
   data() {
     return {
       showPopup: false,
+      showUpdatePopup: false,
     };
   },
 
@@ -25,6 +27,7 @@ export default {
     Input,
     AddButton,
     ClientDetailsPopup,
+    UpdateAptPopup,
   },
 };
 </script>
@@ -43,13 +46,18 @@ export default {
       </div>
 
       <!-- table -->
-      <Table />
+      <Table @showUpdatePopupEmiter="showUpdatePopup = !showUpdatePopup" />
     </div>
 
     <!-- popup -->
     <ClientDetailsPopup
       :showPopup="showPopup"
       @closePopupEmiter="showPopup = !showPopup"
+    />
+
+    <UpdateAptPopup
+      :showUpdatePopup="showUpdatePopup"
+      @closePopupEmiter="showUpdatePopup = !showUpdatePopup"
     />
   </div>
 
@@ -85,7 +93,7 @@ export default {
   img {
     width: 300px;
     height: 300px;
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 </style>
