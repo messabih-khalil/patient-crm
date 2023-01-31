@@ -1,7 +1,17 @@
 <script>
 // ** imports
+import { mapActions, mapGetters } from "vuex";
+
+// **
 
 export default {
+  data() {
+    return {
+      name: "",
+      phone: "",
+    };
+  },
+
   props: {
     showPopup: {
       type: Boolean,
@@ -9,8 +19,20 @@ export default {
   },
 
   methods: {
+    // **
+    ...mapActions("clientsStore", ["addClientAction"]),
+
+    // close popup function
     closePopup() {
       this.$emit("closePopupEmiter");
+    },
+
+    // add new client
+    addClient() {
+      if (this.name && this.phone) {
+        this.addClientAction({ name: this.name, phone: this.phone });
+        this.closePopup();
+      }
     },
   },
 };
@@ -21,14 +43,24 @@ export default {
     <div class="popup-box">
       <p class="title">Nouvelle cliente</p>
       <label for="">Nom & Prenom</label>
-      <input type="" name="" value="" placeholder="Nom & Prenom ..." />
+      <input
+        type="text"
+        name=""
+        placeholder="Nom & Prenom ..."
+        v-model="name"
+      />
       <label for="">Numéro de Téléphone</label>
-      <input type="" name="" value="" placeholder="Numéro de Téléphone" />
+      <input
+        type="text"
+        name=""
+        placeholder="Numéro de Téléphone"
+        v-model="phone"
+      />
 
       <!-- actions -->
 
       <div class="actions">
-        <button>Envoyer</button>
+        <button @click.prevent="addClient()">Envoyer</button>
         <button @click="closePopup">Fermer</button>
       </div>
     </div>
