@@ -3,23 +3,7 @@ const { ipcRenderer } = require("electron");
 export default {
   namespaced: true,
   state: {
-    clients: [
-      {
-        id: 1,
-        name: "messabih khalil",
-        phone: "01478525",
-      },
-      {
-        id: 2,
-        name: "messabih aldin",
-        phone: "01478525",
-      },
-      {
-        id: 3,
-        name: "messabih mohamed",
-        phone: "01478525",
-      },
-    ],
+    clients: [],
   },
   getters: {
     // get all clients
@@ -53,8 +37,8 @@ export default {
     addClientAction: async (context, payload) => {
       // send data to ipc main
       const result = await ipcRenderer.invoke("createClient", payload);
-      console.log(result);
-      // context.commit("PUSH_CLIENT", result);
+      
+      context.commit("PUSH_CLIENT", result);
     },
   },
 };

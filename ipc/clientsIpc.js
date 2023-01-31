@@ -6,7 +6,12 @@ const { addClient } = require("../queries/clientCrud");
 
 // create client
 const createClientIpc = ipcMain.handle("createClient", (event, payload) => {
-  addClient(payload).then(res => console.log(res));
+  let data = [];
+  addClient(payload).then(res => {
+    data = res;
+  });
+
+  return data;
 });
 //
 

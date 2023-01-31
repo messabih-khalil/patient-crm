@@ -1,7 +1,8 @@
 const { db } = require("./dbHelpers");
 
 // add new client
-const addClient = async client => await db("clients").insert(client);
+const addClient = async client =>
+  await db("clients").insert(client, ["id", "name", "phone"]);
 
 // update client
 const updateClient = async client =>
