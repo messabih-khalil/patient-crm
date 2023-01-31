@@ -23,8 +23,10 @@ export default {
     SET_CLIENTS: (state, payload) => {
       state.clients = payload;
     },
-
-    PUSH_CLIENT: (state, payload) => {},
+    // push new client
+    PUSH_CLIENT: (state, payload) => {
+      state.clients.unshift(payload);
+    },
   },
   actions: {
     // get clients
@@ -37,7 +39,6 @@ export default {
     addClientAction: async (context, payload) => {
       // send data to ipc main
       const result = await ipcRenderer.invoke("createClient", payload);
-      
       context.commit("PUSH_CLIENT", result);
     },
   },
