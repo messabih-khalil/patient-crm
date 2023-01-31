@@ -1,36 +1,10 @@
+const { ipcRenderer } = require("electron");
+
 export default {
   namespaced: true,
   state: {
     client: {},
-    clientDetails: [
-      {
-        client_id: 1,
-        id: 1,
-        date: "22-01-2023",
-        description: "lorem ipsum jojdi huyeh j klipo",
-        cout: 7000,
-        versement: 4000,
-        rest: 3000,
-      },
-      {
-        client_id: 1,
-        id: 2,
-        date: "22-02-2023",
-        description: "lorem ipsum jojdi huyeh j klipo",
-        cout: 7000,
-        versement: 7000,
-        rest: 0,
-      },
-      {
-        client_id: 2,
-        id: 3,
-        date: "22-03-2023",
-        description: "lorem ipsum jojdi huyeh j klipo",
-        cout: 7000,
-        versement: 7000,
-        rest: 0,
-      },
-    ],
+    clientDetails: [],
   },
   getters: {
     // get all client details
@@ -56,12 +30,21 @@ export default {
     },
   },
   actions: {
-    // get clients
-    getClientDetailsAction: (context, payload) => {
-      // get client deatails from backend with id
+    getClientapt: async ({ commit, dispatch }, payload) => {
+      console.log(payload);
+      const result = await ipcRenderer.invoke("getAllApt", payload);
+      console.log(result);
+      // set client appt
 
-      // save changes
-      context.commit("SET_CLIENT_DETAILS", payload);
+      commit("SET_CLIENT_DETAILS", result);
+    },
+
+    // get clients
+    getClientDetailsAction: ({ commit, dispatch }, payload) => {
+      // set client
+      commit("SET_CLIENT_INFO", payload);
+      // get client apt from backend with id
+      dispatch("getClientapt", payload.id);
     },
 
     // set client info

@@ -1,11 +1,16 @@
 const { ipcMain } = require("electron");
-const { addApt, getApts } = require("../queries/appointmentsCrud");
+const {
+  addApt,
+  getApts,
+  updateApt,
+  deleteApt,
+} = require("../queries/appointmentsCrud");
 
 // get clients appt
-const getAllApt = ipcMain.handle("getAllApt", async (event, _) => {
+const getAllApt = ipcMain.handle("getAllApt", async (event, payload) => {
   let result = [];
 
-  await getApts().then(res => (result = res[0]));
+  await getApts(payload).then(res => (result = res));
 
   return result;
 });

@@ -30,9 +30,9 @@ export default {
   },
   actions: {
     // get clients
-    getClientsAction: (context, payload) => {
-      // ipcRenderer.invoke('createClient' , "hi")
-      context.commit("SET_CLIENTS", payload);
+    getClientsAction: async (context, payload) => {
+      const result = await ipcRenderer.invoke("getAllClients", "");
+      context.commit("SET_CLIENTS", result);
     },
 
     // add client

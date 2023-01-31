@@ -1,3 +1,18 @@
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  data() {
+    return {
+      aptList: [],
+    };
+  },
+  computed: {
+    ...mapGetters({ apts: "clientDetailStore/getClientDetails" }),
+  },
+};
+</script>
+
 <template>
   <table class="rwd-table">
     <tbody>
@@ -9,12 +24,12 @@
         <th>Rest</th>
         <th></th>
       </tr>
-      <tr>
-        <td>01-12-2023</td>
-        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit</td>
-        <td>7000 DA</td>
-        <td>6000 DA</td>
-        <td>1000 DA</td>
+      <tr v-for="(item, _) in apts" :key="item.id">
+        <td>{{ item.created_at }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.price }} DA</td>
+        <td>{{ item.paid }} DA</td>
+        <td>{{ item.price - item.paid }} DA</td>
         <td class="actions">
           <button>
             <svg
@@ -44,7 +59,6 @@
           </button>
         </td>
       </tr>
-      
     </tbody>
   </table>
 </template>

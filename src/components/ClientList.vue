@@ -47,24 +47,8 @@ export default {
 
   // Hooks
 
-  created() {
-    this.getClientsAction([
-      {
-        id: 1,
-        name: "messabih khalil",
-        phone: "01478525",
-      },
-      {
-        id: 2,
-        name: "messabih aldin",
-        phone: "01478525",
-      },
-      {
-        id: 3,
-        name: "messabih mohamed",
-        phone: "01478525",
-      },
-    ]);
+  async created() {
+    await this.getClientsAction();
     this.clientsList = this.clients;
   },
 };
@@ -83,7 +67,7 @@ export default {
     <Search @searchData="value => filterClients(value)" />
     <!-- tile -->
     <div class="tailes">
-      <Tile v-for="(item, _) in clientsList" :key="item.id" :client=item />
+      <Tile v-for="(item, _) in clientsList" :key="item.id" :client="item" />
     </div>
 
     <!-- popup -->
