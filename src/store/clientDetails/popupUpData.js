@@ -15,7 +15,6 @@ export default {
   },
   actions: {
     changeAptDataAction: (context, payload) => {
-      console.log(payload);
       context.commit("SET_APT_DATA", payload);
     },
   },
