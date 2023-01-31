@@ -1,6 +1,5 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
-
 export default {
   data() {
     return {
@@ -13,10 +12,16 @@ export default {
   methods: {
     ...mapActions("clientDetailStore", ["deleteApt"]),
 
-    // remove apy
+    // remove apt
 
     removeApt(id) {
       this.deleteApt(id);
+    },
+
+    // update apt
+
+    updateApt(id) {
+      console.log(id);
     },
   },
 };
@@ -40,7 +45,7 @@ export default {
         <td>{{ item.paid }} DA</td>
         <td>{{ item.price - item.paid }} DA</td>
         <td class="actions">
-          <button>
+          <button @click.prevent="updateApt(item.id)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
