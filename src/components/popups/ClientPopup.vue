@@ -1,14 +1,18 @@
-<script setup>
+<script>
 // ** imports
-import { ref } from "vue";
 
-// **
-const props = defineProps(["showPopup"]);
+export default {
+  props: {
+    showPopup: {
+      type: Boolean,
+    },
+  },
 
-const emit = defineEmits(["closePopupEmiter"]);
-
-const closePopup = () => {
-  emit("closePopupEmiter");
+  methods: {
+    closePopup() {
+      this.$emit("closePopupEmiter");
+    },
+  },
 };
 </script>
 
