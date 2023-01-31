@@ -18,7 +18,6 @@ const getAllApt = ipcMain.handle("getAllApt", async (event, payload) => {
 // add apt
 const addAptMethod = ipcMain.handle("addApt", async (event, payload) => {
   let result = {};
-
   await addApt(payload).then(res => (result = res));
 
   return result;
@@ -34,8 +33,9 @@ const updateClientApt = ipcMain.handle("updateApt", async (event, payload) => {
 
 // delete apt
 
-const deleteClientApt = ipcMain.handle("deleteApt", async (event, _) => {
-  await deleteApt()
+const deleteClientApt = ipcMain.handle("deleteApt", async (event, id) => {
+  console.log(id);
+  await deleteApt(id)
     .then(res => {
       return true;
     })

@@ -30,7 +30,10 @@ export default {
     // add new client
     addClient() {
       if (this.name && this.phone) {
-        this.addClientAction({ name: this.name, phone: this.phone });
+        this.addClientAction({
+          name: this.name,
+          phone: this.phone,
+        });
         this.closePopup();
       }
     },

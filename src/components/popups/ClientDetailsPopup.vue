@@ -1,14 +1,42 @@
-<script setup>
+<script>
 // ** imports
-import { ref } from "vue";
+
+import { mapActions, mapGetters } from "vuex";
 
 // **
-const props = defineProps(["showPopup"]);
-
-const emit = defineEmits(["closePopupEmiter"]);
-
-const closePopup = () => {
-  emit("closePopupEmiter");
+export default {
+  data() {
+    return {
+      created_at: "",
+      description: "",
+      price: 0,
+      paid: 0,
+    };
+  },
+  computed: {
+    ...mapGetters({ client_id: "clientDetailStore/getClientId" }),
+  },
+  props: {
+    showPopup: {
+      type: Boolean,
+    },
+  },
+  methods: {
+    ...mapActions("clientDetailStore", ["createAptAction"]),
+    closePopup() {
+      this.$emit("closePopupEmiter");
+    },
+    addNewApt() {
+      // console.log(this.apt);
+      this.createAptAction({
+        description: this.description,
+        price: this.price,
+        paid: this.paid,
+        created_at: this.created_at,
+        client_id: this.client_id,
+      });
+    },
+  },
 };
 </script>
 
@@ -17,17 +45,17 @@ const closePopup = () => {
     <div class="popup-box">
       <p class="title">Nouvelle Act</p>
       <label for="">Date</label>
-      <input type="date" name="" value="" />
+      <input type="date" name="" v-model="created_at" />
       <label for="">Act</label>
-      <textarea rows="5" cols=""></textarea>
+      <textarea rows="5" cols="" v-model="description"></textarea>
       <label for="">Cout</label>
-      <input type="number" name="" value="" />
+      <input type="number" name="" v-model="price" />
       <label for="">Versement</label>
-      <input type="number" name="" value="" />
+      <input type="number" name="" v-model="paid" />
       <!-- actions -->
 
       <div class="actions">
-        <button>Envoyer</button>
+        <button @click="addNewApt">Envoyer</button>
         <button @click="closePopup">Fermer</button>
       </div>
     </div>

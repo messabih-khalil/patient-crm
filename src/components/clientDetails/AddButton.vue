@@ -1,10 +1,14 @@
-<script setup>
-// ** change popup status
+<script>
+import { mapGetters } from 'vuex';
 
-const emit = defineEmits(["showPopupEmiter"]);
 
-const togglePopup = () => {
-  emit("showPopupEmiter");
+export default {
+  
+  methods: {
+    togglePopup() {
+      this.$emit("showPopupEmiter");
+    },
+  },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -9,6 +9,15 @@ export default {
   },
   computed: {
     ...mapGetters({ apts: "clientDetailStore/getClientDetails" }),
+  },
+  methods: {
+    ...mapActions("clientDetailStore", ["deleteApt"]),
+
+    // remove apy
+
+    removeApt(id) {
+      this.deleteApt(id);
+    },
   },
 };
 </script>
@@ -44,7 +53,7 @@ export default {
               />
             </svg>
           </button>
-          <button>
+          <button @click.prevent="removeApt(item.id)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -19,6 +19,12 @@ export default {
     getfilteredByDate: state => search => {
       return state.clients.filter(el => el.date.includes(search));
     },
+
+    // get client id
+
+    getClientId: state => {
+      return state.client.id;
+    },
   },
   mutations: {
     SET_CLIENT_DETAILS: (state, payload) => {
@@ -28,12 +34,18 @@ export default {
     SET_CLIENT_INFO: (state, payload) => {
       state.client = payload;
     },
+
+    SET_NEW_APT: (state, payload) => {
+      state.clientDetails.unshift(payload);
+    },
+
+    DELETE_APT: (state, payload) => {
+      state.clientDetails = state.clientDetails.filter(el => el.id != payload);
+    },
   },
   actions: {
     getClientapt: async ({ commit, dispatch }, payload) => {
-      console.log(payload);
       const result = await ipcRenderer.invoke("getAllApt", payload);
-      console.log(result);
       // set client appt
 
       commit("SET_CLIENT_DETAILS", result);
@@ -52,6 +64,21 @@ export default {
       // call getClientDetailsAction
       dispatch("getClientDetailsAction", payload);
       commit("SET_CLIENT_INFO", payload);
+    },
+
+    // set new apt
+
+    createAptAction: async ({ commit, dispatch }, payload) => {
+      const result = await ipcRenderer.invoke("addApt", payload);
+      commit("SET_NEW_APT", result[0]);
+    },
+
+    // delete apt
+
+    deleteApt: async ({ commit, dispatch }, payload) => {
+      const result = await ipcRenderer.invoke("deleteApt", payload);
+
+      commit("DELETE_APT", payload);
     },
   },
 };

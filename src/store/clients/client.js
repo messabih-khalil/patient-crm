@@ -18,6 +18,7 @@ export default {
         el => el.name.includes(search) || el.phone.includes(search)
       );
     },
+
   },
   mutations: {
     SET_CLIENTS: (state, payload) => {
