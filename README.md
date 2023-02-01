@@ -6,5 +6,5 @@ patient-crm , a desktop application for organizing patients and their appointmen
 
 **Client:** vue js, vuex , scss 
 
-**Server:** electron js, node js , knex js , sqlite
+**backend:** electron js, node js , knex js , sqlite
 
