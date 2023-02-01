@@ -1,4 +1,9 @@
-const { createClientIpc, getClientsIpc } = require("./clientsIpc");
+const {
+  createClientIpc,
+  getClientsIpc,
+  updateClientIpc,
+  deleteClientIpc,
+} = require("./clientsIpc");
 
 const {
   getAllApt,
@@ -10,6 +15,8 @@ const {
 module.exports = {
   createClientIpc,
   getClientsIpc,
+  updateClientIpc,
+  deleteClientIpc,
 
   getAllApt,
   addAptMethod,

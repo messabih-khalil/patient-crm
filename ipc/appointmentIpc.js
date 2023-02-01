@@ -34,7 +34,6 @@ const updateClientApt = ipcMain.handle("updateApt", async (event, payload) => {
 // delete apt
 
 const deleteClientApt = ipcMain.handle("deleteApt", async (event, id) => {
-  console.log(id);
   await deleteApt(id)
     .then(res => {
       return true;

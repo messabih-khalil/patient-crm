@@ -66,6 +66,11 @@ export default {
       commit("SET_CLIENT_INFO", payload);
     },
 
+    // set client info after updated
+    updateClientInfo: ({ commit, dispatch }, payload) => {
+      commit("SET_CLIENT_INFO", payload);
+    },
+
     // set new apt
 
     createAptAction: async ({ commit, dispatch }, payload) => {

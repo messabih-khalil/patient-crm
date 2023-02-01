@@ -40,8 +40,6 @@ export default {
     <div class="table">
       <!-- actions -->
       <div class="table-actions">
-        <Input inputType="text" />
-        <Input inputType="date" />
         <AddButton @showPopupEmiter="showPopup = !showPopup" />
       </div>
 

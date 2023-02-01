@@ -27,7 +27,6 @@ export default {
       this.$emit("closePopupEmiter");
     },
     addNewApt() {
-      // console.log(this.apt);
       this.createAptAction({
         description: this.description,
         price: this.price,

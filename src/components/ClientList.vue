@@ -5,6 +5,7 @@ import AddButton from "./AddButton.vue";
 import Search from "./Search.vue";
 import Tile from "../components/Tile.vue";
 import ClientPopupVue from "@/components/popups/ClientPopup.vue";
+import UpdateClientData from "@/components/popups/UpdateClientData.vue";
 import { mapGetters, mapActions } from "vuex";
 
 // ****
@@ -12,6 +13,7 @@ export default {
   data() {
     return {
       showPopup: false,
+      showUpdatePopup: false,
       clientsList: [],
     };
   },
@@ -23,6 +25,7 @@ export default {
     Search,
     Tile,
     ClientPopupVue,
+    UpdateClientData,
   },
 
   // computed
@@ -31,12 +34,18 @@ export default {
     ...mapGetters({ clients: "clientsStore/getAllClients" }),
     ...mapGetters({ getFilteredClients: "clientsStore/getFilteredClients" }),
   },
+
+  watch: {
+    clients: function (newVal, oldVal) {
+      this.clientsList = newVal;
+    },
+  },
+
   // methods
 
   methods: {
     ...mapActions("clientsStore", ["getClientsAction"]),
     filterClients(value) {
-      console.log(value);
       if (value) {
         this.clientsList = this.getFilteredClients(value);
       } else {
@@ -75,6 +84,8 @@ export default {
       :showPopup="showPopup"
       @closePopupEmiter="showPopup = !showPopup"
     />
+
+    <UpdateClientData />
   </div>
 </template>
 
