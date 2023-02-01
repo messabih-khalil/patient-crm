@@ -1,19 +1,10 @@
-# patient-crm
 
-## Project setup
-```
-npm install
-```
+# Patient crm
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+patient-crm , a desktop application for organizing patients and their appointments
+## Tech Stack
 
-### Compiles and minifies for production
-```
-npm run build
-```
+**Client:** vue js, vuex , scss 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**Server:** electron js, node js , knex js , sqlite
+
