@@ -42,7 +42,9 @@ export default {
       </tr>
       <tr v-for="(item, _) in apts" :key="item.id">
         <td>{{ item.created_at }}</td>
-        <td>{{ item.description }}</td>
+        <td class="minText">
+          {{ item.description }}
+        </td>
         <td>{{ item.price }} DA</td>
         <td>{{ item.paid }} DA</td>
         <td>{{ item.price - item.paid }} DA</td>
@@ -193,5 +195,13 @@ export default {
       background-color: rgb(252, 134, 134);
     }
   }
+}
+
+.minText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
 }
 </style>
